@@ -1,6 +1,7 @@
 <?php
+
 require 'vendor/autoload.php';
-//require 'simplehtmldom/simple_html_dom.php';
+
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
@@ -24,14 +25,8 @@ sleep(2);
 while (true) {
     $driver->get('https://minebet.com/strategies')->getPageSource();
     $html = $driver->getPageSource();
-//$count = substr_count($html,'<tr data-id=">');
     $doc = new DOMDocument();
     $res = @$doc->loadHTML($html);
-    /*Если файл является корректным, то оператор вернет
-    нам TRUE и тогда мы сможем манипулировать его DOM моделью.*/
-    //echo '<br>';
-
-    //echo '<br>';
     if ($res) {
         // Извлекаем из документа все теги - <a>
         $tags = $doc->getElementsByTagName('tr');
@@ -53,12 +48,11 @@ $id = file('params.txt');
         $fd = fopen("params.txt", 'w+') or die("не удалось создать файл");
         fputs($fd, $arr[0]);
         fclose($fd);
-
         $url = 'https://api.vk.com/method/messages.send';
         $params = array(
-            'user_id' => '',
+            'user_id' => 'свой id без префикса',
             'message' => strip_tags($doc->saveXML($nodes->item(0))),
-            'access_token' => '',
+            'access_token' => 'сюда токен',
             'v' => '5.37',
         );
         $result = file_get_contents($url, false, stream_context_create(array(
@@ -68,8 +62,6 @@ $id = file('params.txt');
                 'content' => http_build_query($params)
             )
         )));
-
-        print_r(strip_tags($doc->saveXML($nodes->item(0))));
     }
 }
 
