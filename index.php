@@ -6,7 +6,10 @@ use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverBy;
+use Facebook\WebDriver\WebDriverKeys;
 
+ini_set('display_errors', 1);
+ini_set('error_reporting', E_ALL);
 set_time_limit(0);
 $wd_host = 'http://localhost:9515';
 $desired_capabilities = DesiredCapabilities::phantomjs();
@@ -22,7 +25,7 @@ $driver->findElement(WebDriverBy::name('LoginForm[username]'))->sendKeys("testpr
 $driver->findElement(WebDriverBy::name('LoginForm[password]'))->sendKeys("testpro");
 $driver->findElement( WebDriverBy::tagName('button'))->click();
 sleep(2);
-while (true) {
+//while (true) {
     $driver->get('https://minebet.com/strategies')->getPageSource();
     $html = $driver->getPageSource();
     $doc = new DOMDocument();
@@ -44,15 +47,36 @@ $id = file('params.txt');
         $doc->loadHTML($html);
         $xpath = new DOMXPath($doc);
         $nodes = $xpath->evaluate('//tr[@data-id="' . $arr[0] . '"]');
-        echo $doc->saveXML($nodes->item(0));
+        //echo $doc->saveXML($nodes->item(0));
+        //var_dump($doc->saveXML($nodes->item(0)));
+        //var_dump($nodes->parentNode->replaceChild(new DOMText($nodes->nodeValue), $nodes));
+        $words[0] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[1]/span');
+        $words[1] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[2]');
+        $words[2] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[3]/span');
+        $words[3] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[12]');
+        foreach( $words[0] as $obj ) {
+           // echo 'URL: '.$obj->getAttribute('href');
+            echo '<br>Событие<br>';
+            echo '_____________________________________ <br>';
+            echo 'Номер: '. $obj->nodeValue.'<br>';
+        }
+        foreach( $words[1] as $obj ) {
+            echo 'Счет: '. $obj->nodeValue.'<br>';
+        }
+        foreach( $words[2] as $obj ) {
+            echo 'Играют: '. $obj->nodeValue.'<br>';
+        }
+        foreach( $words[3] as $obj ) {
+            echo 'Сумма: '. $obj->nodeValue.'<br>';
+        }
         $fd = fopen("params.txt", 'w+') or die("не удалось создать файл");
         fputs($fd, $arr[0]);
         fclose($fd);
         $url = 'https://api.vk.com/method/messages.send';
         $params = array(
-            'user_id' => 'свой id без префикса',
+            'user_id' => '21383187',
             'message' => strip_tags($doc->saveXML($nodes->item(0))),
-            'access_token' => 'сюда токен',
+            'access_token' => 'ce1200db50d7461d24d1b0b414870ba85d718373b338ff946d82d69cf23bd12f8a346b0894945034442a7',
             'v' => '5.37',
         );
         $result = file_get_contents($url, false, stream_context_create(array(
@@ -62,7 +86,11 @@ $id = file('params.txt');
                 'content' => http_build_query($params)
             )
         )));
-    }
+  //  }
 }
+$driver->getKeyboard()->sendKeys(
+    array(WebDriverKeys::CONTROL, 't')
+);
+
 
 
