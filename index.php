@@ -6,7 +6,6 @@ use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverBy;
-use Facebook\WebDriver\WebDriverKeys;
 
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
@@ -17,10 +16,12 @@ $desired_capabilities->setCapability('acceptSslCerts', false);
 $chromeOptions = new ChromeOptions();
 $arguments = ["--user-agent=Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)"];
 $chromeOptions->addArguments($arguments);
-$chromeOptions->addExtensions(['Selenium/Block-image_v1.1.crx']);
+$chromeOptions->addExtensions(['expansions/Block-image_v1.1.crx']);
 $desired_capabilities->setCapability(ChromeOptions::CAPABILITY, $chromeOptions);
 $driver = RemoteWebDriver::create($wd_host, $desired_capabilities, 5000, 30000);
+$driver1 = RemoteWebDriver::create($wd_host, $desired_capabilities, 5000, 30000);
 $driver->get('https://minebet.com/login');
+$driver1->get('https://vodds.com');
 $driver->findElement(WebDriverBy::name('LoginForm[username]'))->sendKeys("testpro");
 $driver->findElement(WebDriverBy::name('LoginForm[password]'))->sendKeys("testpro");
 $driver->findElement( WebDriverBy::tagName('button'))->click();
@@ -87,10 +88,5 @@ $id = file('params.txt');
             )
         )));
   //  }
+
 }
-$driver->getKeyboard()->sendKeys(
-    array(WebDriverKeys::CONTROL, 't')
-);
-
-
-
