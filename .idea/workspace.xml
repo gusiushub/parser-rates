@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8f31b08-8622-4208-a6d8-a469a1f5cd25" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vods.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/expansions/Block-image_v1.1.crx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/params.txt" beforeDir="false" afterPath="$PROJECT_DIR$/params.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium-server-standalone-3.9.1.jar" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/facebook/webdriver/" />
@@ -26,11 +26,29 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+            <state relative-caret-position="315">
+              <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
               <folding>
                 <element signature="e#39#83#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebDriverBy.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/WebDriverBy.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1995">
+              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChromeOptions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Chrome/ChromeOptions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1087">
+              <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -118,21 +136,6 @@
               <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
               <item name="selenium" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="selenium" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="proxy" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="selenium" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Selenium" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="selenium" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tmp" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -170,12 +173,12 @@
       <updated>1530732946912</updated>
       <workItem from="1530732948217" duration="34236000" />
       <workItem from="1531322561254" duration="9020000" />
-      <workItem from="1531408016446" duration="4581000" />
+      <workItem from="1531408016446" duration="10825000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47837000" />
+    <option name="totallyTimeSpent" value="54081000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
@@ -247,13 +250,6 @@
     <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/WebDriverPoint.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1134" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/WebDriverBy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-378">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Remote/RemoteWebElement.php">
@@ -355,11 +351,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/коин.ai.ps" />
-    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Chrome/ChromeOptions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1953" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/WebDriverKeys.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -434,10 +425,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Chrome/ChromeOptions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1087">
+          <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/WebDriverBy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1995">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        <state relative-caret-position="315">
+          <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
           <folding>
             <element signature="e#39#83#0#PHP" expanded="true" />
           </folding>
