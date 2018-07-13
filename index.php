@@ -4,43 +4,50 @@ require 'vendor/autoload.php';
 
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
-use Facebook\WebDriver\Remote\RemoteExecuteMethod;
-use Facebook\WebDriver\Remote\RemoteKeyboard;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverBy;
-use Facebook\WebDriver\WebDriverElement;
 use Facebook\WebDriver\WebDriverKeys;
 
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 set_time_limit(0);
+
 $wd_host = 'http://localhost:9515';
 $desired_capabilities = DesiredCapabilities::phantomjs();
 $desired_capabilities->setCapability('acceptSslCerts', false);
+
 $chromeOptions = new ChromeOptions();
 $arguments = ["--user-agent=Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)"];
 $chromeOptions->addArguments($arguments);
+//подключение расширений
 $chromeOptions->addExtensions(['extensions/Block-image_v1.1.crx']);
 $chromeOptions->addExtensions(['extensions/HotspotShield.crx']);
 $desired_capabilities->setCapability(ChromeOptions::CAPABILITY, $chromeOptions);
+
+//определение окон(что в каком окне откроется)
 $driver = RemoteWebDriver::create($wd_host, $desired_capabilities, 5000, 30000);
 $driver1 = RemoteWebDriver::create($wd_host, $desired_capabilities, 5000, 30000);
+
+//переходы по ссылкам
 $driver->get('https://minebet.com/login');
+//ждем пока пользователь настроит vpn
 sleep(30);
 $driver1->get('https://vodds.com/login');
+
+//авторизация в профиле
 $driver->findElement(WebDriverBy::name('LoginForm[username]'))->sendKeys("testpro");
 $driver->findElement(WebDriverBy::name('LoginForm[password]'))->sendKeys("testpro");
 $driver->findElement( WebDriverBy::tagName('button'))->click();
-$driver1->findElement(WebDriverBy::name('username'))->sendKeys("eurza1356630");
+
+$driver1->findElement(WebDriverBy::name('username'))->sendKeys("demoeur0381");
 $driver1->findElement(WebDriverBy::name('accessToken'))->sendKeys("Qw5431769er!");
 $driver1->findElement( WebDriverBy::tagName('button'))->click();
+//ждем пока загрузится
 sleep(25);
 //$submitButton = $driver1->findElement( WebDriverBy::cssSelector('span.vodds-watch-list-tab-nav.ng-scope'));
+
 $submitButton = $driver1->findElement( WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'));
 $submitButton->click();
-
-//$f = new RemoteKeyboard(RemoteExecuteMethod::execute('ENTER'));
-//$f->pressKey("ENTER");
 
 //while (true) {
     $driver->get('https://minebet.com/strategies')->getPageSource();
@@ -64,9 +71,6 @@ $id = file('params.txt');
         $doc->loadHTML($html);
         $xpath = new DOMXPath($doc);
         $nodes = $xpath->evaluate('//tr[@data-id="' . $arr[0] . '"]');
-        //echo $doc->saveXML($nodes->item(0));
-        //var_dump($doc->saveXML($nodes->item(0)));
-        //var_dump($nodes->parentNode->replaceChild(new DOMText($nodes->nodeValue), $nodes));
         $words[0] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[1]/span');
         $words[1] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[2]');
         $words[2] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[3]/span');
@@ -127,9 +131,9 @@ $id = file('params.txt');
         $driver1->findElement(WebDriverBy::cssSelector('input#s2id_autogen3.select2-input.select2-default'))->sendKeys($firstCrew);
         $driver1->getKeyboard()->pressKey( WebDriverKeys::ENTER);
         sleep(1);
-        print_r($driver1->findElement( WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span')));
         $driver1->findElement( WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
-        $driver1->findElement(WebDriverBy::cssSelector('input.form-control.vodds-input-text.ng-pristine.ng-valid.ng-empty.ng-touched'))->sendKeys("10");
+        $driver1->findElement(WebDriverBy::name('tradeTabStake'))->sendKeys("10");
+        $driver1->findElement( WebDriverBy::xpath('.//div[@id="39473cea7a201828_false-0-1-2-2"]/div[3]/div/div/a'))->click();
         //  }
 
 }
