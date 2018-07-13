@@ -1,15 +1,51 @@
 <?php
 
-require 'vendor/autoload.php';
-
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverKeys;
 
-ini_set('display_errors', 1);
-ini_set('error_reporting', E_ALL);
+require 'vendor/autoload.php';
+
+/**
+ * Вывод ошибок
+ */
+function debug()
+{
+    ini_set('display_errors', 1);
+    ini_set('error_reporting', E_ALL);
+}
+
+/**
+ * авторизация в профиле
+ * @param $driver
+ * @param $driver1
+ */
+function auth($driver, $driver1)
+{
+    $driver->findElement(WebDriverBy::name('LoginForm[username]'))->sendKeys("testpro");
+    $driver->findElement(WebDriverBy::name('LoginForm[password]'))->sendKeys("testpro");
+    $driver->findElement(WebDriverBy::tagName('button'))->click();
+
+    $driver1->findElement(WebDriverBy::name('username'))->sendKeys("demoeur0381");
+    $driver1->findElement(WebDriverBy::name('accessToken'))->sendKeys("Qw5431769er!");
+    $driver1->findElement(WebDriverBy::tagName('button'))->click();
+}
+
+/**
+ * функция поиска матчей на сайте vodds.com
+ * @param $driver
+ * @param $firstCrew
+ */
+function find($driver, $firstCrew)
+{
+    $driver->findElement(WebDriverBy::cssSelector('input#s2id_autogen3.select2-input.select2-default'))->sendKeys($firstCrew);
+    $driver->getKeyboard()->pressKey(WebDriverKeys::ENTER);
+}
+
+debug();
+
 set_time_limit(0);
 
 $wd_host = 'http://localhost:9515';
@@ -34,31 +70,24 @@ $driver->get('https://minebet.com/login');
 sleep(30);
 $driver1->get('https://vodds.com/login');
 
-//авторизация в профиле
-$driver->findElement(WebDriverBy::name('LoginForm[username]'))->sendKeys("testpro");
-$driver->findElement(WebDriverBy::name('LoginForm[password]'))->sendKeys("testpro");
-$driver->findElement( WebDriverBy::tagName('button'))->click();
+auth($driver,$driver1);
 
-$driver1->findElement(WebDriverBy::name('username'))->sendKeys("demoeur0381");
-$driver1->findElement(WebDriverBy::name('accessToken'))->sendKeys("Qw5431769er!");
-$driver1->findElement( WebDriverBy::tagName('button'))->click();
 //ждем пока загрузится
-sleep(25);
-//$submitButton = $driver1->findElement( WebDriverBy::cssSelector('span.vodds-watch-list-tab-nav.ng-scope'));
+sleep(35);
 
 $submitButton = $driver1->findElement( WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'));
 $submitButton->click();
 
-//while (true) {
+while (true) {
     $driver->get('https://minebet.com/strategies')->getPageSource();
     $html = $driver->getPageSource();
     $doc = new DOMDocument();
     $res = @$doc->loadHTML($html);
     if ($res) {
-        // Извлекаем из документа все теги - <a>
+        // Извлекаем из документа все теги - <tr>
         $tags = $doc->getElementsByTagName('tr');
         $i = 0;
-        //Перебираем массив полученных элементов тега <a>
+        //Перебираем массив полученных элементов тега <tr>
         foreach ($tags as $tr) {
             if ($tr->hasAttribute('data-id')) {
                 $arr[$i] = $tr->getAttribute('data-id');
@@ -66,7 +95,7 @@ $submitButton->click();
             }
         }
     }
-$id = file('params.txt');
+    $id = file('params.txt');
     if($arr[0] != $id[0]) {
         $doc->loadHTML($html);
         $xpath = new DOMXPath($doc);
@@ -77,34 +106,24 @@ $id = file('params.txt');
         $words[3] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[12]');
         $num='';
         foreach( $words[0] as $obj ) {
-           // echo 'URL: '.$obj->getAttribute('href');
-            echo '<br>Событие<br>';
-            echo '_____________________________________ <br>';
             $num.= $obj->nodeValue;
-            echo 'Номер: '.$num.'<br>';
         }
-        echo '<br> ИЗ ЦИКЛА ----'.$num;
+        $score = '';
         foreach( $words[1] as $obj ) {
-            echo 'Счет: '. $obj->nodeValue.'<br>';
+            $score.=$obj->nodeValue;
         }
         $game = '';
         $firstCrew = '';
         $secondCrew = '';
         foreach( $words[2] as $obj ) {
             $game.=$obj->nodeValue;
-            echo 'Играют: '. $game.'<br>';
-
             $firstCrew.= strstr($obj->nodeValue, 'VS', true);
             $secondCrew = strstr($obj->nodeValue, 'VS');
             $secondCrew.= substr($secondCrew,2);
-            echo '<br>'.$firstCrew.'<br>';
-            echo $secondCrew.'<br>';
-
         }
         $sum='';
         foreach( $words[3] as $obj ) {
             $sum.=$obj->nodeValue;
-            echo 'Сумма: '.$sum.'<br>';
         }
         $fd = fopen("params.txt", 'w+') or die("не удалось создать файл");
         fputs($fd, $arr[0]);
@@ -116,8 +135,8 @@ $id = file('params.txt');
             _____________________________________ 
             Номер: '. $num.'
              Играют: '. $game.'
+             Счет: '. $score.'
              Ставка:'.$sum),
-            //'message' => strip_tags($doc->saveXML($nodes->item(0))),
             'access_token' => 'ce1200db50d7461d24d1b0b414870ba85d718373b338ff946d82d69cf23bd12f8a346b0894945034442a7',
             'v' => '5.37',
         );
@@ -128,12 +147,12 @@ $id = file('params.txt');
                 'content' => http_build_query($params)
             )
         )));
-        $driver1->findElement(WebDriverBy::cssSelector('input#s2id_autogen3.select2-input.select2-default'))->sendKeys($firstCrew);
-        $driver1->getKeyboard()->pressKey( WebDriverKeys::ENTER);
+
+        find($driver1,$firstCrew);
         sleep(1);
         $driver1->findElement( WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
         $driver1->findElement(WebDriverBy::name('tradeTabStake'))->sendKeys("10");
-        $driver1->findElement( WebDriverBy::xpath('.//div[@id="39473cea7a201828_false-0-1-2-2"]/div[3]/div/div/a'))->click();
-        //  }
-
+        $driver1->findElement( WebDriverBy::xpath('.//div[@class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable vodds-dialog-active"]/div[2]/div/div[3]/div/div/a'))->click();
+    }
+    sleep(1);
 }
