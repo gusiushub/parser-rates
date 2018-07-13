@@ -126,6 +126,10 @@ $id = file('params.txt');
         )));
         $driver1->findElement(WebDriverBy::cssSelector('input#s2id_autogen3.select2-input.select2-default'))->sendKeys($firstCrew);
         $driver1->getKeyboard()->pressKey( WebDriverKeys::ENTER);
+        sleep(1);
+        print_r($driver1->findElement( WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span')));
+        $driver1->findElement( WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
+        $driver1->findElement(WebDriverBy::cssSelector('input.form-control.vodds-input-text.ng-pristine.ng-valid.ng-empty.ng-touched'))->sendKeys("10");
         //  }
 
 }
