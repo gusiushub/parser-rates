@@ -4,8 +4,12 @@ require 'vendor/autoload.php';
 
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
+use Facebook\WebDriver\Remote\RemoteExecuteMethod;
+use Facebook\WebDriver\Remote\RemoteKeyboard;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverBy;
+use Facebook\WebDriver\WebDriverElement;
+use Facebook\WebDriver\WebDriverKeys;
 
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
@@ -31,7 +35,13 @@ $driver1->findElement(WebDriverBy::name('username'))->sendKeys("eurza1356630");
 $driver1->findElement(WebDriverBy::name('accessToken'))->sendKeys("Qw5431769er!");
 $driver1->findElement( WebDriverBy::tagName('button'))->click();
 sleep(25);
-$driver1->findElement( WebDriverBy::cssSelector('span.vodds-pointer.ng-binding'))->click();
+//$submitButton = $driver1->findElement( WebDriverBy::cssSelector('span.vodds-watch-list-tab-nav.ng-scope'));
+$submitButton = $driver1->findElement( WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'));
+$submitButton->click();
+
+//$f = new RemoteKeyboard(RemoteExecuteMethod::execute('ENTER'));
+//$f->pressKey("ENTER");
+
 //while (true) {
     $driver->get('https://minebet.com/strategies')->getPageSource();
     $html = $driver->getPageSource();
@@ -61,20 +71,36 @@ $id = file('params.txt');
         $words[1] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[2]');
         $words[2] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[3]/span');
         $words[3] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[12]');
+        $num='';
         foreach( $words[0] as $obj ) {
            // echo 'URL: '.$obj->getAttribute('href');
             echo '<br>Событие<br>';
             echo '_____________________________________ <br>';
-            echo 'Номер: '. $obj->nodeValue.'<br>';
+            $num.= $obj->nodeValue;
+            echo 'Номер: '.$num.'<br>';
         }
+        echo '<br> ИЗ ЦИКЛА ----'.$num;
         foreach( $words[1] as $obj ) {
             echo 'Счет: '. $obj->nodeValue.'<br>';
         }
+        $game = '';
+        $firstCrew = '';
+        $secondCrew = '';
         foreach( $words[2] as $obj ) {
-            echo 'Играют: '. $obj->nodeValue.'<br>';
+            $game.=$obj->nodeValue;
+            echo 'Играют: '. $game.'<br>';
+
+            $firstCrew.= strstr($obj->nodeValue, 'VS', true);
+            $secondCrew = strstr($obj->nodeValue, 'VS');
+            $secondCrew.= substr($secondCrew,2);
+            echo '<br>'.$firstCrew.'<br>';
+            echo $secondCrew.'<br>';
+
         }
+        $sum='';
         foreach( $words[3] as $obj ) {
-            echo 'Сумма: '. $obj->nodeValue.'<br>';
+            $sum.=$obj->nodeValue;
+            echo 'Сумма: '.$sum.'<br>';
         }
         $fd = fopen("params.txt", 'w+') or die("не удалось создать файл");
         fputs($fd, $arr[0]);
@@ -82,7 +108,12 @@ $id = file('params.txt');
         $url = 'https://api.vk.com/method/messages.send';
         $params = array(
             'user_id' => '21383187',
-            'message' => strip_tags($doc->saveXML($nodes->item(0))),
+            'message' => strip_tags('Событие
+            _____________________________________ 
+            Номер: '. $num.'
+             Играют: '. $game.'
+             Ставка:'.$sum),
+            //'message' => strip_tags($doc->saveXML($nodes->item(0))),
             'access_token' => 'ce1200db50d7461d24d1b0b414870ba85d718373b338ff946d82d69cf23bd12f8a346b0894945034442a7',
             'v' => '5.37',
         );
@@ -93,6 +124,8 @@ $id = file('params.txt');
                 'content' => http_build_query($params)
             )
         )));
-  //  }
+        $driver1->findElement(WebDriverBy::cssSelector('input#s2id_autogen3.select2-input.select2-default'))->sendKeys($firstCrew);
+        $driver1->getKeyboard()->pressKey( WebDriverKeys::ENTER);
+        //  }
 
 }
