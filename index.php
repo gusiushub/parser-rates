@@ -148,11 +148,24 @@ while (true) {
             )
         )));
 
+        sleep(5);
         find($driver1,$firstCrew);
         sleep(1);
         $driver1->findElement( WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
         $driver1->findElement(WebDriverBy::name('tradeTabStake'))->sendKeys("10");
-        $driver1->findElement( WebDriverBy::xpath('.//div[@class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable vodds-dialog-active"]/div[2]/div/div[3]/div/div/a'))->click();
+        sleep(1);
+        //$driver1->findElement( WebDriverBy::xpath('.//div[@id="[a-z0-9\d]_false[0-9-]+"]/div[3]/div/div/a'))->click();
+        $driver1->findElement( WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
+        //$driver1->findElement( WebDriverBy::linkText('Place order'))->click();
+        sleep(2);
+        $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
+        sleep(2);
+        $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
+        sleep(4);
+        //$driver1->findElement(WebDriverBy::cssSelector('i.fa.fa-times.vodds-pointer.vodds-multi-tag-reset'))->click();
+        $driver->findElement(WebDriverBy::cssSelector('input#s2id_autogen3.select2-input'))->sendKeys('tt');
+        $driver->getKeyboard()->pressKey(WebDriverKeys::BACKSPACE);
+        $driver->getKeyboard()->pressKey(WebDriverKeys::BACKSPACE);
     }
     sleep(1);
 }
