@@ -2,6 +2,7 @@
 /**
  * Файл для настройки скрипта
  */
+
 return array(
     'loginMinebet'    => '', // Логин на сайте minebet
     'passwordMinebet' => '', // Пароль на сайте minebet
@@ -9,4 +10,5 @@ return array(
     'passwordVodds'   => '', // Пароль на сайте vodds
     'idVk'            => '', // id пользователя на сайте vk которому отправлять уведомление
     'tokenVk'         => '', // token вашего аккаунта на сайте vk
+    'message'         => '', // Содержание уведомления
 );

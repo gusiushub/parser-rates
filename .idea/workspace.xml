@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8f31b08-8622-4208-a6d8-a469a1f5cd25" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/params.txt" beforeDir="false" afterPath="$PROJECT_DIR$/params.txt" afterDir="false" />
     </list>
@@ -21,32 +21,31 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="172" column="26" selection-start-line="172" selection-start-column="26" selection-end-line="172" selection-end-column="26" />
+            <state relative-caret-position="432">
+              <caret line="291" column="89" selection-start-line="291" selection-start-column="89" selection-end-line="291" selection-end-column="89" />
               <folding>
-                <element signature="e#7#50#0#PHP" expanded="true" />
                 <element signature="n#debug#0;n#!!top" />
                 <element signature="n#waitForElementVisible#0;n#!!top" />
                 <element signature="n#auth#0;n#!!top" />
                 <element signature="n#find#0;n#!!top" />
                 <element signature="n#isElementPresent#0;n#!!top" />
-                <marker date="1531794602894" expanded="true" signature="5464:5572" ph="..." />
-                <marker date="1531794602894" expanded="true" signature="6149:6260" ph="..." />
-                <marker date="1531794602894" expanded="true" signature="10631:10833" ph="..." />
+                <marker date="1531849448446" expanded="true" signature="5464:5572" ph="..." />
+                <marker date="1531849448446" expanded="true" signature="6149:6260" ph="..." />
+                <marker date="1531849448446" expanded="true" signature="10738:10940" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+            <state relative-caret-position="42">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -79,9 +78,9 @@
         <option value="$PROJECT_DIR$/proxy/background.js" />
         <option value="$PROJECT_DIR$/vods.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/params.txt" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/config.php" />
       </list>
     </option>
   </component>
@@ -126,6 +125,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,7 +137,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -174,18 +173,19 @@
       <workItem from="1531322561254" duration="9020000" />
       <workItem from="1531408016446" duration="36941000" />
       <workItem from="1531469130383" duration="15491000" />
-      <workItem from="1531786962919" duration="8045000" />
+      <workItem from="1531786962919" duration="10260000" />
+      <workItem from="1531847282658" duration="993000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103733000" />
+    <option name="totallyTimeSpent" value="106941000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23264782" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23586118" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32965517" />
@@ -213,7 +213,37 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/simplehtmldom/example/simple_html_dom_utility.php" />
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6153">
+          <caret line="293" column="17" lean-forward="true" selection-start-line="293" selection-start-column="17" selection-end-line="293" selection-end-column="17" />
+          <folding>
+            <element signature="n#debug#0;n#!!top" />
+            <element signature="n#waitForElementVisible#0;n#!!top" />
+            <element signature="n#auth#0;n#!!top" />
+            <element signature="n#find#0;n#!!top" />
+            <element signature="n#isElementPresent#0;n#!!top" />
+            <marker date="1531849448446" expanded="true" signature="5464:5572" ph="..." />
+            <marker date="1531849448446" expanded="true" signature="6149:6260" ph="..." />
+            <marker date="1531849448446" expanded="true" signature="10738:10940" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/params.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/simplehtmldom/example/example_advanced_selector.php" />
     <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Remote/Service/DriverCommandExecutor.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -375,9 +405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
-          <folding>
-            <element signature="e#660#701#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -408,24 +435,6 @@
         <state relative-caret-position="-142" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Exception/ElementNotSelectableException.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Exception/ElementNotVisibleException.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Exception/UnableToSetCookieException.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Exception/UnknownCommandException.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Exception/WebDriverException.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Chrome/ChromeDriverService.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Chrome/ChromeOptions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-987">
@@ -438,11 +447,12 @@
         <state relative-caret-position="-1260" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Interactions/Internal/WebDriverClickAction.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/facebook/webdriver/lib/Chrome/ChromeDriver.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/params.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -453,26 +463,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="172" column="26" selection-start-line="172" selection-start-column="26" selection-end-line="172" selection-end-column="26" />
+        <state relative-caret-position="432">
+          <caret line="291" column="89" selection-start-line="291" selection-start-column="89" selection-end-line="291" selection-end-column="89" />
           <folding>
-            <element signature="e#7#50#0#PHP" expanded="true" />
             <element signature="n#debug#0;n#!!top" />
             <element signature="n#waitForElementVisible#0;n#!!top" />
             <element signature="n#auth#0;n#!!top" />
             <element signature="n#find#0;n#!!top" />
             <element signature="n#isElementPresent#0;n#!!top" />
-            <marker date="1531794602894" expanded="true" signature="5464:5572" ph="..." />
-            <marker date="1531794602894" expanded="true" signature="6149:6260" ph="..." />
-            <marker date="1531794602894" expanded="true" signature="10631:10833" ph="..." />
+            <marker date="1531849448446" expanded="true" signature="5464:5572" ph="..." />
+            <marker date="1531849448446" expanded="true" signature="6149:6260" ph="..." />
+            <marker date="1531849448446" expanded="true" signature="10738:10940" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
         </state>
       </provider>
     </entry>
