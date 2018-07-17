@@ -1,5 +1,5 @@
 <?php
-
+//  namespace Facebook\WebDriver;
 use Facebook\WebDriver\Chrome\ChromeDriver;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Exception\TimeOutException;
@@ -63,20 +63,40 @@ function waitForElementVisible(&$driver, $WebDriverBy, $timeout = 10, $interval 
 function auth($driver, $driver1)
 {
     // Ожидаем появление элекмента input 5 секунд. Если не нашли - исключение
-    try {
-        waitForElementVisible($driver, WebDriverBy::name('LoginForm[username]'), 5);
-    } catch (Exception $ex) {
-        echo "input NOT FOUND!!!";
-        #$msg = $ex->getMessage();
-        #echo "_Exception || msg=[[\n$msg\n]]";
-        exit;
-    }
+//    try {
+//        waitForElementVisible($driver, WebDriverBy::name('LoginForm[username]'), 5);
+//    } catch (Exception $ex) {
+//        echo "input NOT FOUND!!!";
+//        #$msg = $ex->getMessage();
+//        #echo "_Exception || msg=[[\n$msg\n]]";
+//        exit;
+//    }
     $driver->findElement(WebDriverBy::name('LoginForm[username]'))->sendKeys("testpro");
     $driver->findElement(WebDriverBy::name('LoginForm[password]'))->sendKeys("testpro");
+
+    // Проверяем доступность элемента
+//    if (!isElementPresent($driver, WebDriverBy::tagName('button'))) {
+//        echo "button NOT FOUND!!!";
+//        exit;
+//    }
     $driver->findElement(WebDriverBy::tagName('button'))->click();
 
+    // Ожидаем появление элекмента input 5 секунд. Если не нашли - исключение
+//    try {
+//        waitForElementVisible($driver1, WebDriverBy::name('username'), 5);
+//    } catch (Exception $ex) {
+//        echo "input NOT FOUND!!!";
+//        #$msg = $ex->getMessage();
+//        #echo "_Exception || msg=[[\n$msg\n]]";
+//        exit;
+//    }
     $driver1->findElement(WebDriverBy::name('username'))->sendKeys("demoeur0381");
     $driver1->findElement(WebDriverBy::name('accessToken'))->sendKeys("Qw5431769er!");
+    // Проверяем доступность элемента
+//    if (!isElementPresent($driver1, WebDriverBy::tagName('button'))) {
+//        echo "button NOT FOUND!!!";
+//        exit;
+//    }
     $driver1->findElement(WebDriverBy::tagName('button'))->click();
 }
 
@@ -138,29 +158,30 @@ $chromeOptions->addExtensions(['extensions/HotspotShield.crx']);
 $desired_capabilities->setCapability(ChromeOptions::CAPABILITY, $chromeOptions);
 
 // добавить cookie
-$driver->manage()->deleteAllCookies();
-$driver->manage()->addCookie(array(
-    'name' => 'cookie_name',
-    'value' => 'cookie_value',
-));
-$cookies = $driver->manage()->getCookies();
+//$driver->manage()->deleteAllCookies();
+//$driver->manage()->addCookie(array(
+//    'name' => 'cookie_name',
+//    'value' => 'cookie_value',
+//));
+//$cookies = $driver->manage()->getCookies();
 
 //определение окон(что в каком окне откроется)
-$driver = RemoteWebDriver::create($wd_host, $desired_capabilities, 5000, 30000);
 $driver1 = RemoteWebDriver::create($wd_host, $desired_capabilities, 5000, 30000);
+$driver = RemoteWebDriver::create($wd_host, $desired_capabilities, 5000, 30000);
+
 //putenv("webdriver.chrome.driver=/chromedriver.exe");
 //$driver = ChromeDriver::start($desired_capabilities);
 //переходы по ссылкам
 $driver->get('https://minebet.com/login');
 //ждем пока пользователь настроит vpn
-sleep(25);
+sleep(15);
 $driver1->get('https://vodds.com/login');
 
 //авторизация
 auth($driver,$driver1);
 // Ожидаем появление элекмента input 40 секунд. Если не нашли - исключение
 //try {
-//    waitForElementVisible($driver, WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'), 20);
+//    waitForElementVisible($driver1, WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'), 20);
 //} catch (Exception $ex) {
 //    echo "input NOT FOUND!!!";
 //    #$msg = $ex->getMessage();
@@ -202,17 +223,23 @@ while (true) {
             $words[1] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[2]');
             $words[2] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[3]/span');
             $words[3] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[12]');
+
             $num = '';
+
             foreach ($words[0] as $obj) {
                 $num .= $obj->nodeValue;
             }
+
             $score = '';
+
             foreach ($words[1] as $obj) {
                 $score .= $obj->nodeValue;
             }
-            $game = '';
-            $firstCrew = '';
+
+            $game       = '';
+            $firstCrew  = '';
             $secondCrew = '';
+
             foreach ($words[2] as $obj) {
                 $game .= $obj->nodeValue;
                 $firstCrew .= strstr($obj->nodeValue, 'VS', true);
@@ -246,7 +273,7 @@ while (true) {
                 )
             )));
 
-            sleep(3);
+            sleep(2);
             find($driver1, $firstCrew);
             sleep(1);
             $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
@@ -254,16 +281,18 @@ while (true) {
             sleep(1);
             //$driver1->findElement( WebDriverBy::xpath('.//div[@id="[a-z0-9\d]_false[0-9-]+"]/div[3]/div/div/a'))->click();
             $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
+            $driver1->findElement(WebDriverBy::cssSelector('a.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
             //$driver1->findElement( WebDriverBy::linkText('Place order'))->click();
             sleep(2);
             $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
             sleep(2);
             $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
-            sleep(4);
+            sleep(2);
+            $driver1->findElement(WebDriverBy::cssSelector('i.fa.fa-times.vodds-pointer.vodds-multi-tag-reset::before'))->click();
             //$driver1->findElement(WebDriverBy::cssSelector('i.fa.fa-times.vodds-pointer.vodds-multi-tag-reset'))->click();
-            $driver->findElement(WebDriverBy::cssSelector('input#s2id_autogen3.select2-input'))->sendKeys('tt');
-            $driver->getKeyboard()->pressKey(WebDriverKeys::BACKSPACE);
-            $driver->getKeyboard()->pressKey(WebDriverKeys::BACKSPACE);
+//            $driver->findElement(WebDriverBy::cssSelector('input#s2id_autogen3.select2-input'))->sendKeys('tt');
+//            $driver->getKeyboard()->pressKey(WebDriverKeys::BACKSPACE);
+//            $driver->getKeyboard()->pressKey(WebDriverKeys::BACKSPACE);
         }
         sleep(1);
     }catch (WebDriverException $ex){
