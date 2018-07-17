@@ -1,5 +1,8 @@
 <?php
-//  namespace Facebook\WebDriver;
+/**
+ * Скрипт для автоставок
+ */
+
 use Facebook\WebDriver\Chrome\ChromeDriver;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Exception\TimeOutException;
@@ -157,20 +160,10 @@ $chromeOptions->addExtensions(['extensions/Block-image_v1.1.crx']);
 $chromeOptions->addExtensions(['extensions/HotspotShield.crx']);
 $desired_capabilities->setCapability(ChromeOptions::CAPABILITY, $chromeOptions);
 
-// добавить cookie
-//$driver->manage()->deleteAllCookies();
-//$driver->manage()->addCookie(array(
-//    'name' => 'cookie_name',
-//    'value' => 'cookie_value',
-//));
-//$cookies = $driver->manage()->getCookies();
-
 //определение окон(что в каком окне откроется)
 $driver1 = RemoteWebDriver::create($wd_host, $desired_capabilities, 5000, 30000);
 $driver = RemoteWebDriver::create($wd_host, $desired_capabilities, 5000, 30000);
 
-//putenv("webdriver.chrome.driver=/chromedriver.exe");
-//$driver = ChromeDriver::start($desired_capabilities);
 //переходы по ссылкам
 $driver->get('https://minebet.com/login');
 //ждем пока пользователь настроит vpn
@@ -179,20 +172,8 @@ $driver1->get('https://vodds.com/login');
 
 //авторизация
 auth($driver,$driver1);
-// Ожидаем появление элекмента input 40 секунд. Если не нашли - исключение
-//try {
-//    waitForElementVisible($driver1, WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'), 20);
-//} catch (Exception $ex) {
-//    echo "input NOT FOUND!!!";
-//    #$msg = $ex->getMessage();
-//    #echo "_Exception || msg=[[\n$msg\n]]";
-//    exit;
-//}
-//ждем пока загрузится
-sleep(20);
 
-//$submitButton = $driver1->findElement( WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'));
-//$submitButton->click();
+sleep(20);
 
 $driver1->findElement( WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'))->click();
 
@@ -279,21 +260,13 @@ while (true) {
             $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
             $driver1->findElement(WebDriverBy::name('tradeTabStake'))->sendKeys("10");
             sleep(3);
-            //$driver1->findElement( WebDriverBy::xpath('.//div[@id="[a-z0-9\d]_false[0-9-]+"]/div[3]/div/div/a'))->click();
             $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
-            //$driver1->findElement(WebDriverBy::cssSelector('a.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
-            //$driver1->findElement( WebDriverBy::linkText('Place order'))->click();
             sleep(2);
             $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
             sleep(2);
             $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
             sleep(2);
-            //$driver1->findElement(WebDriverBy::cssSelector('i.fa.fa-times.vodds-pointer.vodds-multi-tag-reset::before'))->click();
             $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
-            //$driver1->findElement(WebDriverBy::cssSelector('i.fa.fa-times.vodds-pointer.vodds-multi-tag-reset'))->click();
-//            $driver->findElement(WebDriverBy::cssSelector('input#s2id_autogen3.select2-input'))->sendKeys('tt');
-//            $driver->getKeyboard()->pressKey(WebDriverKeys::BACKSPACE);
-//            $driver->getKeyboard()->pressKey(WebDriverKeys::BACKSPACE);
         }
         sleep(1);
     }catch (WebDriverException $ex){
