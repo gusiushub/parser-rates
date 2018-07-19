@@ -145,9 +145,12 @@ function isElementPresent(&$driver, $WebDriverBy)
     }
 } // isElementPresent
 
+exec('start '.$_SERVER['DOCUMENT_ROOT'].'\chromedriver.exe');
+
 debug();
 
 set_time_limit(0);
+ignore_user_abort(true);
 
 $wd_host = 'http://localhost:9515';
 $desired_capabilities = DesiredCapabilities::phantomjs();
