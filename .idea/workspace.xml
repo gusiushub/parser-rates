@@ -4,6 +4,7 @@
     <list default="true" id="d8f31b08-8622-4208-a6d8-a469a1f5cd25" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/params.txt" beforeDir="false" afterPath="$PROJECT_DIR$/params.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run.php" beforeDir="false" afterPath="$PROJECT_DIR$/run.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -183,12 +184,12 @@
       <workItem from="1531928296824" duration="267000" />
       <workItem from="1531960412211" duration="5040000" />
       <workItem from="1532084467277" duration="207000" />
-      <workItem from="1532193302359" duration="9296000" />
+      <workItem from="1532193302359" duration="9605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148068000" />
+    <option name="totallyTimeSpent" value="148377000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
