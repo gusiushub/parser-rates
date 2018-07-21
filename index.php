@@ -35,29 +35,12 @@ $config = require 'config.php';
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="logo wow fadeInDown">
-                        <h1>
-                            <a href="">Erine - Bootstrap Coming Soon Template</a>
-                        </h1>
-                    </div>
-                    <h2 class="wow fadeInLeftBig">МЕНЮ | НАСТРОЙКИ приложения</h2>
-<!--                    <div class="timer wow fadeInUp">-->
-<!--                        <div class="days-wrapper">-->
-<!--                            <span class="days"></span> <br>days-->
-<!--                        </div>-->
-<!--                        <span class="slash">/</span>-->
-<!--                        <div class="hours-wrapper">-->
-<!--                            <span class="hours"></span> <br>hours-->
-<!--                        </div>-->
-<!--                        <span class="slash">/</span>-->
-<!--                        <div class="minutes-wrapper">-->
-<!--                            <span class="minutes"></span> <br>minutes-->
-<!--                        </div>-->
-<!--                        <span class="slash">/</span>-->
-<!--                        <div class="seconds-wrapper">-->
-<!--                            <span class="seconds"></span> <br>seconds-->
-<!--                        </div>-->
+<!--                    <div class="logo wow fadeInDown">-->
+<!--                        <h1>-->
+<!--                            <a href="">Erine - Bootstrap Coming Soon Template</a>-->
+<!--                        </h1>-->
 <!--                    </div>-->
+                    <h2 class="wow fadeInLeftBig">МЕНЮ | НАСТРОЙКИ приложения</h2>
                     <div class="wow fadeInLeftBig">
                         <p>
                             Логин на minebet - <?php echo $config['loginMinebet'];?> <br>
