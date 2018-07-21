@@ -3,12 +3,13 @@
  * Файл для настройки скрипта
  */
 
+$value = file('profile.php');
 return array(
-    'loginMinebet'    => '', // Логин на сайте minebet
-    'passwordMinebet' => '', // Пароль на сайте minebet
-    'loginVodds'      => '', // Логин на сайте vodds
-    'passwordVodds'   => '', // Пароль на сайте vodds
-    'idVk'            => '', // id пользователя на сайте vk которому отправлять уведомление
-    'tokenVk'         => '', // token вашего аккаунта на сайте vk
+    'loginMinebet'    => substr($value[2],1), // Логин на сайте minebet
+    'passwordMinebet' => substr($value[3],1), // Пароль на сайте minebet
+    'loginVodds'      => substr($value[4],1), // Логин на сайте vodds
+    'passwordVodds'   => substr($value[5],1), // Пароль на сайте vodds
+    'idVk'            => substr($value[6],1), // id пользователя на сайте vk которому отправлять уведомление
+    'tokenVk'         => substr($value[7],1), // token вашего аккаунта на сайте vk
     'message'         => '', // Содержание уведомления
 );
