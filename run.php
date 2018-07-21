@@ -28,6 +28,7 @@ function dump($var)
     echo '<pre>';
     var_dump($var);
     echo '</pre>';
+    exit;
 }
 
 /**
@@ -176,6 +177,7 @@ while (true) {
             $words[1] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[2]');
             $words[2] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[3]/span');
             $words[3] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[12]');
+            $words[4] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[6]');
             $num = '';
             foreach ($words[0] as $obj) {
                 $num .= $obj->nodeValue;
@@ -197,6 +199,14 @@ while (true) {
             foreach ($words[3] as $obj) {
                 $sum .= $obj->nodeValue;
             }
+            $sum = trim($sum);
+            $sum = substr($sum, 0, -8);
+            $on = '';
+            foreach ($words[4] as $obj) {
+                $on .= $obj->nodeValue;
+            }
+            //under\over и т.д.
+            $on = trim($on);
             $fd = fopen("params.txt", 'w+') or die("не удалось создать файл");
             fputs($fd, $arr[0]);
             fclose($fd);
@@ -222,8 +232,21 @@ ____________________
             sleep(2);
             find($driver1, $firstCrew);
             sleep(1);
-            $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
-            $driver1->findElement(WebDriverBy::name('tradeTabStake'))->sendKeys("10");
+            if ($on=='Over') {
+                //dump($driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->getText());
+                $textOver = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->getText();
+                if ($textOver!="" and $textOver!=null) {
+                    $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
+                }
+            }
+            if ($on == 'Under') {
+                //dump($driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->getText());
+                $textUnder = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->getText();
+                if ($textUnder != "" and $textUnder != null) {
+                    $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->click();
+                }
+            }
+            $driver1->findElement(WebDriverBy::name('tradeTabStake'))->sendKeys($sum);
             sleep(3);
             $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
             sleep(2);
