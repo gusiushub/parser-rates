@@ -23,6 +23,9 @@ function debug()
     ini_set('error_reporting', E_ALL);
 }
 
+/**
+ * @param $var
+ */
 function dump($var)
 {
     echo '<pre>';

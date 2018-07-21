@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8f31b08-8622-4208-a6d8-a469a1f5cd25" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/params.txt" beforeDir="false" afterPath="$PROJECT_DIR$/params.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run.php" beforeDir="false" afterPath="$PROJECT_DIR$/run.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -34,8 +31,8 @@
       <file leaf-file-name="run.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="241" column="13" lean-forward="true" selection-start-line="241" selection-start-column="13" selection-end-line="241" selection-end-column="13" />
+            <state relative-caret-position="294">
+              <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
               <folding>
                 <element signature="e#6#38#0#PHP" expanded="true" />
                 <element signature="n#debug#0;n#!!top" />
@@ -184,12 +181,12 @@
       <workItem from="1531928296824" duration="267000" />
       <workItem from="1531960412211" duration="5040000" />
       <workItem from="1532084467277" duration="207000" />
-      <workItem from="1532193302359" duration="9605000" />
+      <workItem from="1532193302359" duration="10361000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148377000" />
+    <option name="totallyTimeSpent" value="149133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
@@ -492,8 +489,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/run.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="241" column="13" lean-forward="true" selection-start-line="241" selection-start-column="13" selection-end-line="241" selection-end-column="13" />
+        <state relative-caret-position="294">
+          <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
           <folding>
             <element signature="e#6#38#0#PHP" expanded="true" />
             <element signature="n#debug#0;n#!!top" />
