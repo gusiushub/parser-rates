@@ -23,6 +23,13 @@ function debug()
     ini_set('error_reporting', E_ALL);
 }
 
+function dump($var)
+{
+    echo '<pre>';
+    var_dump($var);
+    echo '</pre>';
+}
+
 /**
  * Ожидание появление элемента N секунд
  * Если находит раньше, то возвращает true, иначе исключение
@@ -64,9 +71,7 @@ function waitForElementVisible(&$driver, $WebDriverBy, $timeout = 10, $interval 
  */
 function auth($driver, $driver1)
 {
-
     $config = require 'config.php';
-    //var_dump($config);exit;
     $driver->findElement(WebDriverBy::name('LoginForm[username]'))->sendKeys(trim($config['loginMinebet']));
     $driver->findElement(WebDriverBy::name('LoginForm[password]'))->sendKeys(trim($config['passwordMinebet']));
     $driver->findElement(WebDriverBy::tagName('button'))->click();
@@ -171,23 +176,17 @@ while (true) {
             $words[1] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[2]');
             $words[2] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[3]/span');
             $words[3] = $xpath->query('.//tr[@data-id="' . $arr[0] . '"]/td[12]');
-
             $num = '';
-
             foreach ($words[0] as $obj) {
                 $num .= $obj->nodeValue;
             }
-
             $score = '';
-
             foreach ($words[1] as $obj) {
                 $score .= $obj->nodeValue;
             }
-
             $game       = '';
             $firstCrew  = '';
             $secondCrew = '';
-
             foreach ($words[2] as $obj) {
                 $game .= $obj->nodeValue;
                 $firstCrew .= strstr($obj->nodeValue, 'VS', true);
