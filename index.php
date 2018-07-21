@@ -1,16 +1,13 @@
 <?php
 $config = require 'config.php';
-//var_dump($config);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Erine - Bootstrap Coming Soon Template</title>
+    <title>АВТО ставка</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,400italic,700,700italic">
@@ -20,13 +17,6 @@ $config = require 'config.php';
     <link rel="stylesheet" href="assets/css/form-elements.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/media-queries.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="assets/ico/favicon.png">
@@ -51,23 +41,23 @@ $config = require 'config.php';
                         </h1>
                     </div>
                     <h2 class="wow fadeInLeftBig">МЕНЮ | НАСТРОЙКИ приложения</h2>
-                    <div class="timer wow fadeInUp">
-                        <div class="days-wrapper">
-                            <span class="days"></span> <br>days
-                        </div>
-                        <span class="slash">/</span>
-                        <div class="hours-wrapper">
-                            <span class="hours"></span> <br>hours
-                        </div>
-                        <span class="slash">/</span>
-                        <div class="minutes-wrapper">
-                            <span class="minutes"></span> <br>minutes
-                        </div>
-                        <span class="slash">/</span>
-                        <div class="seconds-wrapper">
-                            <span class="seconds"></span> <br>seconds
-                        </div>
-                    </div>
+<!--                    <div class="timer wow fadeInUp">-->
+<!--                        <div class="days-wrapper">-->
+<!--                            <span class="days"></span> <br>days-->
+<!--                        </div>-->
+<!--                        <span class="slash">/</span>-->
+<!--                        <div class="hours-wrapper">-->
+<!--                            <span class="hours"></span> <br>hours-->
+<!--                        </div>-->
+<!--                        <span class="slash">/</span>-->
+<!--                        <div class="minutes-wrapper">-->
+<!--                            <span class="minutes"></span> <br>minutes-->
+<!--                        </div>-->
+<!--                        <span class="slash">/</span>-->
+<!--                        <div class="seconds-wrapper">-->
+<!--                            <span class="seconds"></span> <br>seconds-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="wow fadeInLeftBig">
                         <p>
                             Логин на minebet - <?php echo $config['loginMinebet'];?> <br>
@@ -80,20 +70,21 @@ $config = require 'config.php';
                            V Ниже можно изменить конфигурации приложения V
                         </p>
                     </div>
-                    <div class="subscribe wow fadeInUp">
-                        <form class="form-inline" action="write.php" method="post">
-                            <input type="text" name="loginMinebet" placeholder="Логин на minebet" >
-                            <input type="text" name="passwordMinebet" placeholder="Пароль на minebet">
-                            <input type="text" name="loginVodds" placeholder="Логин на vodds">
-                            <input type="text" name="passwordVodds" placeholder="Пароль на vodds">
-                            <input type="text" name="token" placeholder="token ВК" >
-                            <input type="text" name="id" placeholder="id пользователя">
-                            <input type="submit" class="btn btn-primary" value="Изменить">
-                        </form>
-                        <?php var_dump($_POST); ?>
+<!--                    <div class="subscribe wow fadeInUp">-->
+                        <form name="form"   action="./write.php" method="post">
+                            <input type="text" name="loginMinebet" placeholder="Логин на minebet" /><br>
+                            <input type="text" name="passwordMinebet" placeholder="Пароль на minebet"/><br>
+                            <input type="text" name="loginVodds" placeholder="Логин на vodds"/><br>
+                            <input type="text" name="passwordVodds" placeholder="Пароль на vodds"/><br>
+                            <input type="text" name="token" placeholder="token ВК" /><br>
+                            <input type="text" name="id" placeholder="id пользователя"/><br><br>
+                            <input type="submit" name="submit" style="width: 250px;" class="btn btn-primary" value="Сохранить" /><br>
+                        </form><br>
+                    <a style="width: 250px;" class="btn btn-primary" href="/run.php">Запустить</a>
+
 <!--                        <div class="success-message"></div>-->
 <!--                        <div class="error-message"></div>-->
-                    </div>
+<!--                    </div>-->
                 </div>
             </div>
         </div>

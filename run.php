@@ -64,11 +64,14 @@ function waitForElementVisible(&$driver, $WebDriverBy, $timeout = 10, $interval 
  */
 function auth($driver, $driver1)
 {
-    $driver->findElement(WebDriverBy::name('LoginForm[username]'))->sendKeys("testpro");
-    $driver->findElement(WebDriverBy::name('LoginForm[password]'))->sendKeys("testpro");
+
+    $config = require 'config.php';
+    //var_dump($config);exit;
+    $driver->findElement(WebDriverBy::name('LoginForm[username]'))->sendKeys(trim($config['loginMinebet']));
+    $driver->findElement(WebDriverBy::name('LoginForm[password]'))->sendKeys(trim($config['passwordMinebet']));
     $driver->findElement(WebDriverBy::tagName('button'))->click();
-    $driver1->findElement(WebDriverBy::name('username'))->sendKeys("demoeur0381");
-    $driver1->findElement(WebDriverBy::name('accessToken'))->sendKeys("Qw5431769er!");
+    $driver1->findElement(WebDriverBy::name('username'))->sendKeys(trim($config['loginVodds']));
+    $driver1->findElement(WebDriverBy::name('accessToken'))->sendKeys(trim($config['passwordVodds']));
     $driver1->findElement(WebDriverBy::tagName('button'))->click();
 }
 
@@ -201,12 +204,12 @@ while (true) {
             $url = 'https://api.vk.com/method/messages.send';
             $params = array(
                 'user_id' => '21383187',
-                'message' => strip_tags('Событие
-            _____________________________________ 
-            Номер: ' . $num . '
-             Играют: ' . $game . '
-             Счет: ' . $score . '
-             Ставка:' . $sum),
+                'message' => 'Событие
+____________________
+Номер:'.$num.'
+Играют:'.$game.'
+Счет:'.$score .'
+Ставка:'. $sum,
                 'access_token' => 'ce1200db50d7461d24d1b0b414870ba85d718373b338ff946d82d69cf23bd12f8a346b0894945034442a7',
                 'v' => '5.37',
             );
