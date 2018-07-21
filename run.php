@@ -233,17 +233,19 @@ ____________________
             find($driver1, $firstCrew);
             sleep(1);
             if ($on=='Over') {
-                //dump($driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->getText());
                 $textOver = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->getText();
                 if ($textOver!="" and $textOver!=null) {
                     $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
+                }else {
+                    $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
                 }
             }
             if ($on == 'Under') {
-                //dump($driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->getText());
                 $textUnder = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->getText();
                 if ($textUnder != "" and $textUnder != null) {
                     $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->click();
+                }else {
+                    $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
                 }
             }
             $driver1->findElement(WebDriverBy::name('tradeTabStake'))->sendKeys($sum);
