@@ -14,6 +14,20 @@ use Facebook\WebDriver\WebDriverKeys;
 
 require 'vendor/autoload.php';
 
+function getElementsByClass(&$parentNode, $tagName, $className) {
+    $nodes=array();
+
+    $childNodeList = $parentNode->getElementsByTagName($tagName);
+    for ($i = 0; $i < $childNodeList->length; $i++) {
+        $temp = $childNodeList->item($i);
+        if (stripos($temp->getAttribute('class'), $className) !== false) {
+            $nodes[]=$temp;
+        }
+    }
+
+    return $nodes;
+}
+
 /**
  * Вывод ошибок
  */
@@ -151,8 +165,13 @@ $driver1->get('https://vodds.com/login');
 //авторизация
 auth($driver,$driver1);
 //УВЕЛИЧИТЬ ЕСЛИ ИСПОЛЬЗУЕТСЯ VPN РАСШИРЕНИЕ ДЛЯ БРАУЗЕРА(~на 5 секунд)
-sleep(20);
+sleep(25);
 $driver1->findElement( WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'))->click();
+//var_dump(isElementPresent($driver1,WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span/i')));exit;
+//var_dump($driver1->findElement( WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span/div/div'))->isDisplayed());exit;
+$timeDo = fopen("time.txt", 'w+') or die("не удалось создать файл");
+$min = time() / 60 ;
+fputs($timeDo, $min);
 while (true) {
     try {
         $driver->get('https://minebet.com/strategies')->getPageSource();
@@ -171,7 +190,18 @@ while (true) {
                 }
             }
         }
+        $timeStart = file('time.txt');
+        $min = time() / 60 ;
+        $doTime = $min - $timeStart[0];
         $id = file('params.txt');
+        //смоделировать действие на странице
+        if ($doTime>15) {
+            $timeDo = fopen("time.txt", 'w+') or die("не удалось создать файл");
+            fputs($timeDo, $min);
+            $driver1->findElement( WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[1]/span'))->click();
+            sleep(1);
+            $driver1->findElement( WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'))->click();
+        }
         if ($arr[0] != $id[0]) {
             $doc->loadHTML($html);
             $xpath = new DOMXPath($doc);
@@ -235,6 +265,11 @@ ____________________
             sleep(2);
             find($driver1, $firstCrew);
             sleep(1);
+//            if ($driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tboadsdy[5]/trasd/td[10]/span'))) {
+//                var_dump($driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span')));
+//                exit;
+//            }
+//            exit('else');
             if ($on=='Over') {
                 $textOver = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->getText();
                 if ($textOver!="" and $textOver!=null) {
@@ -252,16 +287,27 @@ ____________________
                 }
             }
             $driver1->findElement(WebDriverBy::name('tradeTabStake'))->sendKeys($sum);
-            sleep(3);
+
+            //$driver1->findElement(WebDriverBy::cssSelector('button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close.ng-scope'))->click();
+            sleep(4);
             $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
             sleep(2);
+            //$driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
+//            $dump1 = $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'));
+//            if ($dump1){
+//                $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
+//            }
             $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
             sleep(2);
             $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
-            sleep(2.5);
+//            $dump = $driver1->findElement(WebDriverBy::cssSelector('button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close.ng-scope'));
+//            if($dump){
+//                $driver1->findElement(WebDriverBy::cssSelector('button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close.ng-scope'))->click();
+//            }
+            sleep(2);
             $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
         }
-        sleep(1);
+        //sleep(1);
     }catch (WebDriverException $ex){
         echo'ОШИБКА! <br> ERROR...';
         $msg = $ex->getMessage();
