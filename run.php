@@ -270,31 +270,40 @@ ____________________
 //                exit;
 //            }
 //            exit('else');
+            $driver1->findElement(WebDriverBy::cssSelector('i.fa.fa-plus'))->click();
             if ($on=='Over') {
-                $textOver = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->getText();
+                //$textOver = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->getText();
+                $textOver = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr[2]/td[10]/span'))->getText();
                 if ($textOver!="" and $textOver!=null) {
-                    $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
+                    $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr[2]/td[10]/span'))->click();
+                    //$driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
                 }else {
                     $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
                 }
             }
             if ($on == 'Under') {
-                $textUnder = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->getText();
+                //$textUnder = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->getText();
+                $textUnder = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr[2]/td[11]/span'))->getText();
                 if ($textUnder != "" and $textUnder != null) {
-                    $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->click();
+                    $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr[2]/td[11]/span'))->click();
+                    //$driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->click();
                 }else {
                     $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
                 }
             }
+            sleep(2);
             $driver1->findElement(WebDriverBy::name('tradeTabStake'))->sendKeys($sum);
 
             //$driver1->findElement(WebDriverBy::cssSelector('button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close.ng-scope'))->click();
             sleep(4);
+            //var_dump($driver1->findElement(WebDriverBy::cssSelector('input.form-control.vodds-input-text'))->getText());exit;
             $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
             sleep(2);
             //$driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
-//            $dump1 = $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'));
-//            if ($dump1){
+            //sleep(1);
+//            $dump1 = $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->isDisplayed();
+//            if ($dump1==true){
+//                sleep(2);
 //                $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
 //            }
             $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
@@ -304,10 +313,11 @@ ____________________
 //            if($dump){
 //                $driver1->findElement(WebDriverBy::cssSelector('button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close.ng-scope'))->click();
 //            }
-            sleep(2);
+            sleep(1);
             $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
+            //$driver1->findElement(WebDriverBy::cssSelector('i.fa.fa-times.vodds-pointer.vodds-multi-tag-reset'))->click();
         }
-        //sleep(1);
+        sleep(1);
     }catch (WebDriverException $ex){
         echo'ОШИБКА! <br> ERROR...';
         $msg = $ex->getMessage();
