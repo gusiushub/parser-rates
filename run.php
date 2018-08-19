@@ -14,6 +14,16 @@ use Facebook\WebDriver\WebDriverKeys;
 
 require 'vendor/autoload.php';
 
+function sendVk()
+{
+
+}
+
+function sendTelegram()
+{
+
+}
+
 function getElementsByClass(&$parentNode, $tagName, $className) {
     $nodes=array();
 
@@ -173,9 +183,10 @@ $driver->get('https://minebet.com/login');
 //sleep(15);
 $driver1->get('https://vodds.com/login');
 //авторизация
+sleep(2);
 auth($driver,$driver1);
 //УВЕЛИЧИТЬ ЕСЛИ ИСПОЛЬЗУЕТСЯ VPN РАСШИРЕНИЕ ДЛЯ БРАУЗЕРА(~на 5 секунд)
-sleep(25);
+sleep(35);
 $driver1->findElement( WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'))->click();
 $timeDo = fopen("time.txt", 'w+') or die("не удалось создать файл");
 $min = time() / 60 ;
@@ -228,8 +239,8 @@ while (true) {
             foreach ($words[1] as $obj) {
                 $score .= $obj->nodeValue;
             }
-            $game       = '';
-            $firstCrew  = '';
+            $game = '';
+            $firstCrew = '';
             $secondCrew = '';
             foreach ($words[2] as $obj) {
                 $game .= $obj->nodeValue;
@@ -260,12 +271,14 @@ while (true) {
             $url = 'https://api.vk.com/method/messages.send';
             $params = array(
                 'user_id' => '21383187',
-                'message' => 'Событие
-                ____________________
-                Номер:'.$num.'
-                Играют:'.$game.'
-                Счет:'.$score .'
-                Ставка:'. $sum,
+                'message' => '
+                +-------------+
+                |   Событие   |
+                +-------------+
+                Номер: ' . trim($num) . '
+                Играют: ' . trim($game) . '
+                Счет: ' . trim($score) . '
+                Ставка: ' . trim($sum),
                 'access_token' => 'ce1200db50d7461d24d1b0b414870ba85d718373b338ff946d82d69cf23bd12f8a346b0894945034442a7',
                 'v' => '5.37',
             );
@@ -276,132 +289,172 @@ while (true) {
                     'content' => http_build_query($params)
                 )
             )));
-            sleep(2);
-            find($driver1, $firstCrew);
-            sleep(1);
-            $driver1->findElement(WebDriverBy::cssSelector('i.fa.fa-plus'))->click();
-            if ($on=='Over') {
-                //$textOver = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->getText();
-//                $textOver = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr[2]/td[10]/span'))->getText();
-//                if ($textOver!="" and $textOver!=null) {
-//                    $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr[2]/td[10]/span'))->click();
-//                    //$driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span'))->click();
-//                }else {
+
+//            $html = $driver1->getPageSource();
+//                //$html = $driver1->get('https://vodds.com/member/dashboard')->getPageSource();
+//                @$doc->loadHTML($html);
+//                $xpath = new DOMXPath($doc);
+//                $queryKrest = $xpath->query('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i')->length;
+//                if($queryKrest==1){
 //                    $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
 //                }
-
-                $html = $driver1->getPageSource();
-                //$html = $driver1->get('https://vodds.com/member/dashboard')->getPageSource();
-                @$doc->loadHTML($html);
-                $xpath = new DOMXPath($doc);
-                $k=1;
-                $i=1;
-                while ($k==1)
-                {
-                    $ou = $xpath->query('.//table[@class="hover-table"]/tbody[2]/tr/td[10]/span');
-                    $i++;
+                sleep(2);
+            find($driver1, $firstCrew);
+            sleep(1);
+//            $html = $driver1->getPageSource();
+//            //$html = $driver1->get('https://vodds.com/member/dashboard')->getPageSource();
+//            @$doc->loadHTML($html);
+//            $xpath = new DOMXPath($doc);
+//            $ou = $xpath->query('.//table[@class="hover-table"]/tbody[2]/tr/td[1]/span/span/span[2]/i')->length;
+//            if ($ou==1) {//ng-scope
+                $driver1->findElement(WebDriverBy::cssSelector('i.fa.fa-plus'))->click();
+                if ($on == 'Over') {
+                    $html = $driver1->getPageSource();
+                    //$html = $driver1->get('https://vodds.com/member/dashboard')->getPageSource();
+                    @$doc->loadHTML($html);
+                    $xpath = new DOMXPath($doc);
+                    $ou = $xpath->query('.//table[@class="hover-table"]/tbody[2]/tr/td[9]/span');
                     $total = '';
-                    //var_dump($ou);exit;
-                    if ($ou!=null) {
+                    if ($ou != null) {
                         foreach ($ou as $obj) {
                             $total .= $obj->nodeValue;
                         }
                         $total = trim($total);
-                        //$total= str_replace('\n', '', $total);
-                        //$total= str_replace(chr(13),'',$total);
-                        $total= str_replace(chr(10),'',$total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        $total= str_replace('      ', '', $total);
-                        //$total = explode("", $total);
-                        var_dump($total);
-                        exit;
-                    }
-                    if($total==$odd){
-                        $k++;
-                        $textUnder = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr['.$i.']/td[10]/span'))->getText();
-                        if ($textUnder != "" and $textUnder != null) {
-                            $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr['.$i.']/td[10]/span'))->click();
-                            //$driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->click();
-                        }else {
-                            $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
+                        $total = str_replace(chr(13), '', $total);
+                        $total = str_replace(chr(10), '', $total);
+                        $total = str_replace(' ', '', $total);
+                        $total = explode("\t", $total);
+                        $count = count($total);
+                        $k = 0;
+                        for ($j = 0; $j < $count; $j++) {
+                            if ($total[$j] != null or $total[$j] != '') {
+                                $k++;
+                            }
+                            $odd = trim($odd);
+                            if ($total[$j] == $odd) {
+                                $textUnder = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr[' . $k . ']/td[10]/span'))->getText();
+                                if ($textUnder != "" and $textUnder != null) {
+                                    $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr[' . $k . ']/td[10]/span'))->click();
+                                    //$driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->click();
+                                } else {
+                                    $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
+                                }
+                            }
                         }
                     }
                 }
-            }
-            if ($on == 'Under') {
-                $html = $driver1->getPageSource();
-                //$html = $driver1->get('https://vodds.com/member/dashboard')->getPageSource();
-                @$doc->loadHTML($html);
-                $xpath = new DOMXPath($doc);
-                $k=1;
-                $i=1;
-                while ($k==1)
-                {
-                    $ou[$i] = $xpath->query('.//table[@class="hover-table"]/tbody[2]/tr['.$i.']/td[11]/span');
-
-                    $i++;
+                if ($on == 'Under') {
+                    $html = $driver1->getPageSource();
+                    @$doc->loadHTML($html);
+                    $xpath = new DOMXPath($doc);
+                    $ou = $xpath->query('.//table[@class="hover-table"]/tbody[2]/tr/td[9]/span');
                     $total = '';
-                    foreach ($ou[$i] as $obj) {
-                        $total .= $obj->nodeValue;
-                    }
-                    var_dump($total);exit;
-                    if($total==$odd){
-                        $k++;
-                        $textUnder = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr['.$i.']/td[11]/span'))->getText();
-                        if ($textUnder != "" and $textUnder != null) {
-                            $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr['.$i.']/td[11]/span'))->click();
-                            //$driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->click();
-                        }else {
-                            $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
+                    if ($ou != null) {
+                        foreach ($ou as $obj) {
+                            $total .= $obj->nodeValue;
+                        }
+                        $total = trim($total);
+                        $total = str_replace(chr(13), '', $total);
+                        $total = str_replace(chr(10), '', $total);
+                        $total = str_replace(' ', '', $total);
+                        $total = explode("\t", $total);
+                        $count = count($total);
+                        $k = 0;
+                        for ($j = 0; $j < $count; $j++) {
+                            if ($total[$j] != null or $total[$j] != '') {
+                                $k++;
+                            }
+                            $odd = trim($odd);
+                            if ($total[$j] == $odd) {
+                                $textUnder = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr[' . $k . ']/td[11]/span'))->getText();
+                                if ($textUnder != "" and $textUnder != null) {
+                                    $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr[' . $k . ']/td[11]/span'))->click();
+                                    //$driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->click();
+                                } else {
+                                    $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
+                                }
+                            }
                         }
                     }
-                    //$type-это потле TYPE на vodds
-                    // $type[$i] = $xpath->query....
-                    if($type[$i]!=null){
-                        $k++;
-                    }
+                    //$textUnder = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->getText();
                 }
-                //$textUnder = $driver1->findElement(WebDriverBy::xpath('.//table[@class="hover-table"]/tbody[2]/tr/td[11]/span'))->getText();
+                sleep(2);
+                $driver1->findElement(WebDriverBy::name('tradeTabStake'))->sendKeys($sum);
+                //$driver1->findElement(WebDriverBy::cssSelector('button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close.ng-scope'))->click();
+                sleep(4);
+                //var_dump($driver1->findElement(WebDriverBy::cssSelector('input.form-control.vodds-input-text'))->getText());exit;
+                $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
+                sleep(2);
+                $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
+                sleep(2);
+                $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
+            $driver1->get('https://vodds.com/member/dashboard');
+            sleep(35);
+            $driver1->findElement( WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'))->click();
+
+//                $html = $driver1->getPageSource();
+                //$html = $driver1->get('https://vodds.com/member/dashboard')->getPageSource();
+//                @$doc->loadHTML($html);
+//                $xpath = new DOMXPath($doc);
+//                $queryKrest = $xpath->query('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i')->length;
+                //var_dump($queryKrest);exit;
+//            $krest = '';
+//            foreach ($queryKrest as $obj) {
+//                $krest .= $obj->nodeValue;
+//            }
+            //var_dump($krest);exit;
+//                if ($queryKrest == 1) {
+//                    $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
+//                    $url = 'https://api.vk.com/method/messages.send';
+//                    $params = array(
+//                        'user_id' => '21383187',
+//                        'message' => 'Ставка сделана без ошибок!',
+//                        'access_token' => 'ce1200db50d7461d24d1b0b414870ba85d718373b338ff946d82d69cf23bd12f8a346b0894945034442a7',
+//                        'v' => '5.37',
+//                    );
+//                    $result = file_get_contents($url, false, stream_context_create(array(
+//                        'http' => array(
+//                            'method' => 'POST',
+//                            'header' => 'Content-type: application/x-www-form-urlencoded',
+//                            'content' => http_build_query($params)
+//                        )
+//                    )));
+//                } else {
+//                    $driver1->get('https://vodds.com/member/dashboard');
+//                    sleep(30);
+//                    $driver1->findElement(WebDriverBy::xpath('.//div[@class="nav-tabs"]/span[2]/span'))->click();
+//                    $url = 'https://api.vk.com/method/messages.send';
+//                    $params = array(
+//                        'user_id' => '21383187',
+//                        'message' => 'Программа не нажала крестик!',
+//                        'access_token' => 'ce1200db50d7461d24d1b0b414870ba85d718373b338ff946d82d69cf23bd12f8a346b0894945034442a7',
+//                        'v' => '5.37',
+//                    );
+//                    $result = file_get_contents($url, false, stream_context_create(array(
+//                        'http' => array(
+//                            'method' => 'POST',
+//                            'header' => 'Content-type: application/x-www-form-urlencoded',
+//                            'content' => http_build_query($params)
+//                        )
+//                    )));
+//                }
+                //$driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
+                //$driver1->findElement(WebDriverBy::cssSelector('i.fa.fa-times.vodds-pointer.vodds-multi-tag-reset'))->click();
 
             }
-            sleep(2);
-            $driver1->findElement(WebDriverBy::name('tradeTabStake'))->sendKeys($sum);
-            //$driver1->findElement(WebDriverBy::cssSelector('button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close.ng-scope'))->click();
-            sleep(4);
-            //var_dump($driver1->findElement(WebDriverBy::cssSelector('input.form-control.vodds-input-text'))->getText());exit;
-            $driver1->findElement(WebDriverBy::xpath('.//div[@class="row"]/div/div/a'))->click();
-            sleep(2);
-            $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
-            sleep(2);
-            $driver1->findElement(WebDriverBy::cssSelector('button.btn.vodds-btn.vodds-blue-btn.pull-right'))->click();
-            sleep(1);
-            $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
-            //$driver1->findElement(WebDriverBy::cssSelector('i.fa.fa-times.vodds-pointer.vodds-multi-tag-reset'))->click();
-//            $html = $driver1->getPageSource();
-//            $doc->loadHTML($html);
-//            $xpath = new DOMXPath($doc);
-//            $element = $xpath->query('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i');
-//            $krestik = '';
-//            foreach ($element as $el) {
-//                $krestik .= $el->nodeValue;
+//            else{
+//            exit('sdfsdfsdfsdfsdfsdfsdffsdfsdf');
+//                $html = $driver1->getPageSource();
+//                //$html = $driver1->get('https://vodds.com/member/dashboard')->getPageSource();
+//                @$doc->loadHTML($html);
+//                $xpath = new DOMXPath($doc);
+//                $queryKrest = $xpath->query('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i')->length;
+//                if($queryKrest==1){
+//                    $driver1->findElement(WebDriverBy::xpath('.//div[@id="voddsOddPanel"]/div[1]/div[2]/div/span/i'))->click();
+//                }
 //            }
-//            var_dump($krestik);exit;
-        }
-        sleep(1);
+        //}
+        sleep(5);
     }catch (WebDriverException $ex){
         echo'ОШИБКА! <br> ERROR...';
         $msg = $ex->getMessage();
