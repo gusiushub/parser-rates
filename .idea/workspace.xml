@@ -26,10 +26,23 @@
       <file leaf-file-name="run.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="180">
               <caret line="249" column="13" selection-start-line="249" selection-start-column="13" selection-end-line="249" selection-end-column="13" />
               <folding>
                 <element signature="e#40#84#0#PHP" expanded="true" />
+=======
+            <state relative-caret-position="159">
+              <caret line="390" column="61" selection-start-line="390" selection-start-column="61" selection-end-line="390" selection-end-column="61" />
+              <folding>
+                <element signature="e#40#84#0#PHP" expanded="true" />
+                <element signature="n#getElementsByClass#0;n#!!top" />
+                <element signature="n#debug#0;n#!!top" />
+                <element signature="n#dump#0;n#!!top" />
+                <element signature="n#waitForElementVisible#0;n#!!top" />
+                <element signature="n#find#0;n#!!top" />
+                <element signature="n#isElementPresent#0;n#!!top" />
+>>>>>>> master
               </folding>
             </state>
           </provider>
@@ -191,12 +204,20 @@
       <workItem from="1533455937783" duration="7184000" />
       <workItem from="1533672800512" duration="10379000" />
       <workItem from="1534088949807" duration="3058000" />
+<<<<<<< HEAD
       <workItem from="1534701310734" duration="2763000" />
+=======
+      <workItem from="1534701310734" duration="2059000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="239998000" />
+=======
+    <option name="totallyTimeSpent" value="239294000" />
+>>>>>>> master
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
@@ -241,6 +262,15 @@
           <caret line="441" column="12" lean-forward="true" selection-start-line="441" selection-start-column="12" selection-end-line="441" selection-end-column="12" />
           <folding>
             <element signature="e#40#84#0#PHP" expanded="true" />
+<<<<<<< HEAD
+=======
+            <element signature="n#getElementsByClass#0;n#!!top" />
+            <element signature="n#debug#0;n#!!top" />
+            <element signature="n#dump#0;n#!!top" />
+            <element signature="n#waitForElementVisible#0;n#!!top" />
+            <element signature="n#find#0;n#!!top" />
+            <element signature="n#isElementPresent#0;n#!!top" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -265,6 +295,15 @@
           <caret line="430" column="127" selection-start-line="430" selection-start-column="127" selection-end-line="430" selection-end-column="127" />
           <folding>
             <element signature="e#40#84#0#PHP" expanded="true" />
+<<<<<<< HEAD
+=======
+            <element signature="n#getElementsByClass#0;n#!!top" />
+            <element signature="n#debug#0;n#!!top" />
+            <element signature="n#dump#0;n#!!top" />
+            <element signature="n#waitForElementVisible#0;n#!!top" />
+            <element signature="n#find#0;n#!!top" />
+            <element signature="n#isElementPresent#0;n#!!top" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -289,6 +328,15 @@
           <caret line="334" column="51" lean-forward="true" selection-start-line="330" selection-start-column="20" selection-end-line="334" selection-end-column="51" />
           <folding>
             <element signature="e#40#84#0#PHP" expanded="true" />
+<<<<<<< HEAD
+=======
+            <element signature="n#getElementsByClass#0;n#!!top" />
+            <element signature="n#debug#0;n#!!top" />
+            <element signature="n#dump#0;n#!!top" />
+            <element signature="n#waitForElementVisible#0;n#!!top" />
+            <element signature="n#find#0;n#!!top" />
+            <element signature="n#isElementPresent#0;n#!!top" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -313,6 +361,15 @@
           <caret line="367" column="124" selection-start-line="367" selection-start-column="124" selection-end-line="367" selection-end-column="124" />
           <folding>
             <element signature="e#40#84#0#PHP" expanded="true" />
+<<<<<<< HEAD
+=======
+            <element signature="n#getElementsByClass#0;n#!!top" />
+            <element signature="n#debug#0;n#!!top" />
+            <element signature="n#dump#0;n#!!top" />
+            <element signature="n#waitForElementVisible#0;n#!!top" />
+            <element signature="n#find#0;n#!!top" />
+            <element signature="n#isElementPresent#0;n#!!top" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -337,6 +394,15 @@
           <caret line="417" column="56" selection-start-line="417" selection-start-column="56" selection-end-line="417" selection-end-column="56" />
           <folding>
             <element signature="e#40#84#0#PHP" expanded="true" />
+<<<<<<< HEAD
+=======
+            <element signature="n#getElementsByClass#0;n#!!top" />
+            <element signature="n#debug#0;n#!!top" />
+            <element signature="n#dump#0;n#!!top" />
+            <element signature="n#waitForElementVisible#0;n#!!top" />
+            <element signature="n#find#0;n#!!top" />
+            <element signature="n#isElementPresent#0;n#!!top" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -361,6 +427,15 @@
           <caret line="351" column="29" lean-forward="true" selection-start-line="351" selection-start-column="29" selection-end-line="351" selection-end-column="29" />
           <folding>
             <element signature="e#40#84#0#PHP" expanded="true" />
+<<<<<<< HEAD
+=======
+            <element signature="n#getElementsByClass#0;n#!!top" />
+            <element signature="n#debug#0;n#!!top" />
+            <element signature="n#dump#0;n#!!top" />
+            <element signature="n#waitForElementVisible#0;n#!!top" />
+            <element signature="n#find#0;n#!!top" />
+            <element signature="n#isElementPresent#0;n#!!top" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -385,6 +460,15 @@
           <caret line="219" column="55" lean-forward="true" selection-start-line="219" selection-start-column="55" selection-end-line="219" selection-end-column="55" />
           <folding>
             <element signature="e#40#84#0#PHP" expanded="true" />
+<<<<<<< HEAD
+=======
+            <element signature="n#getElementsByClass#0;n#!!top" />
+            <element signature="n#debug#0;n#!!top" />
+            <element signature="n#dump#0;n#!!top" />
+            <element signature="n#waitForElementVisible#0;n#!!top" />
+            <element signature="n#find#0;n#!!top" />
+            <element signature="n#isElementPresent#0;n#!!top" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -395,6 +479,15 @@
           <caret line="89" column="32" lean-forward="true" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
           <folding>
             <element signature="e#40#84#0#PHP" expanded="true" />
+<<<<<<< HEAD
+=======
+            <element signature="n#getElementsByClass#0;n#!!top" />
+            <element signature="n#debug#0;n#!!top" />
+            <element signature="n#dump#0;n#!!top" />
+            <element signature="n#waitForElementVisible#0;n#!!top" />
+            <element signature="n#find#0;n#!!top" />
+            <element signature="n#isElementPresent#0;n#!!top" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -405,6 +498,15 @@
           <caret line="315" column="19" selection-start-line="315" selection-start-column="19" selection-end-line="315" selection-end-column="19" />
           <folding>
             <element signature="e#40#84#0#PHP" expanded="true" />
+<<<<<<< HEAD
+=======
+            <element signature="n#getElementsByClass#0;n#!!top" />
+            <element signature="n#debug#0;n#!!top" />
+            <element signature="n#dump#0;n#!!top" />
+            <element signature="n#waitForElementVisible#0;n#!!top" />
+            <element signature="n#find#0;n#!!top" />
+            <element signature="n#isElementPresent#0;n#!!top" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -425,10 +527,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/run.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="180">
           <caret line="249" column="13" selection-start-line="249" selection-start-column="13" selection-end-line="249" selection-end-column="13" />
           <folding>
             <element signature="e#40#84#0#PHP" expanded="true" />
+=======
+        <state relative-caret-position="159">
+          <caret line="390" column="61" selection-start-line="390" selection-start-column="61" selection-end-line="390" selection-end-column="61" />
+          <folding>
+            <element signature="e#40#84#0#PHP" expanded="true" />
+            <element signature="n#getElementsByClass#0;n#!!top" />
+            <element signature="n#debug#0;n#!!top" />
+            <element signature="n#dump#0;n#!!top" />
+            <element signature="n#waitForElementVisible#0;n#!!top" />
+            <element signature="n#find#0;n#!!top" />
+            <element signature="n#isElementPresent#0;n#!!top" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
