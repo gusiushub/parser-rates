@@ -14,16 +14,66 @@ use Facebook\WebDriver\WebDriverKeys;
 
 require 'vendor/autoload.php';
 
+// сюда нужно вписать токен вашего бота
+define('TELEGRAM_TOKEN', '688404574:AAEGCIxVP4o2BGMETPAMhZM3WsBRBs3x0qg');
+// сюда нужно вписать ваш внутренний айдишник
+define('TELEGRAM_CHATID', '489822059');
+define('VK_TOKEN','тут токен');
+define('VK_USERID','тут токен');
+
+
+
+
+/**
+ *
+ */
 function sendVk()
 {
-
+    $url = 'https://api.vk.com/method/messages.send';
+    $params = array(
+        'user_id' => '21383187',
+        'message' => '
+                +-------------+
+                |   Событие   |
+                +-------------+
+                Номер: ' . trim($num) . '
+                Играют: ' . trim($game) . '
+                Счет: ' . trim($score) . '
+                Ставка: ' . trim($sum),
+        'access_token' => 'ce1200db50d7461d24d1b0b414870ba85d718373b338ff946d82d69cf23bd12f8a346b0894945034442a7',
+        'v' => '5.37',
+    );
+    $result = file_get_contents($url, false, stream_context_create(array(
+        'http' => array(
+            'method' => 'POST',
+            'header' => 'Content-type: application/x-www-form-urlencoded',
+            'content' => http_build_query($params)
+        )
+    )));
 }
 
-function sendTelegram()
+/**
+ * @param $text
+ */
+function sendTelegram($text)
 {
-
+    $ch = curl_init();
+    curl_setopt_array(
+        $ch,
+        array(
+            CURLOPT_URL => 'https://api.telegram.org/bot' . TELEGRAM_TOKEN . '/sendMessage',
+            CURLOPT_POST => TRUE,
+            CURLOPT_RETURNTRANSFER => TRUE,
+            CURLOPT_TIMEOUT => 10,
+            CURLOPT_POSTFIELDS => array(
+                'chat_id' => TELEGRAM_CHATID,
+                'text' => $text,
+            ),
+        )
+    );
+    curl_exec($ch);
 }
-
+sendTelegram('aasddasdas');
 function getElementsByClass(&$parentNode, $tagName, $className) {
     $nodes=array();
 
